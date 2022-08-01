@@ -1,0 +1,21 @@
+<button class="btn btn-info primary-bg mb-2" (click)="print()">Print</button>
+<nz-table #basicTable [nzData]="table_data">
+    <thead>
+      <tr>
+        <th>Sn.</th>
+        <th>Email</th>
+        <th>Valid</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of basicTable.data; let i = index">
+        <td>{{i+1}}</td>
+        <td>{{data.email}}</td>
+        <td>{{data.verified}}</td>
+        <td>
+          <a>Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>

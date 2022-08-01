@@ -1,0 +1,48 @@
+<div class="row m-0 h-100">
+    <div class="col-sm-6 text-black">
+        <div class="px-5 ms-xl-4">
+            <span class="h1 fw-bold mb-0">Logo</span>
+        </div>
+        <div class="flex-center-box h-custom-2 px-5 mb-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
+            <form class="auth-form" novalidate [formGroup]="login_form" (ngSubmit)="signIn()">
+                <h3 class="fw-normal mb-3 pb-3">Log in</h3>
+                <nz-form-item>
+                    <label nzFor="email" class="w-100">Email Address</label>
+                    <nz-form-control [nzErrorTip]="emailErrorTpl">
+                        <nz-input-group nzSize="large">
+                            <input nzSize="large" type="email" id="email" nzSize="large" nz-input
+                                formControlName="email" placeholder="Email" />
+                        </nz-input-group>
+                        <ng-template #emailErrorTpl let-control>
+                            <ng-container *ngIf="control.hasError('required')">
+                                Please enter email address.
+                            </ng-container>
+                            <ng-container *ngIf="control.hasError('email')">
+                                Please enter valid email address.
+                            </ng-container>
+                        </ng-template>
+                    </nz-form-control>
+                </nz-form-item>
+
+                <nz-form-item class="mb-2">
+                    <label nzFor="email" class="w-100">Password</label>
+                    <nz-form-control nzErrorTip="Please enter password.">
+                      <nz-input-group nzSize="large">
+                        <input nzSize="large" type="password" id="password" nzSize="large" nz-input formControlName="password"
+                          placeholder="Password"/>
+                      </nz-input-group>
+                    </nz-form-control>
+                </nz-form-item>
+                <div class="pt-1 mb-4">
+                    <button class="btn btn-info btn-lg btn-block primary-bg" type="submit">Login</button>
+                </div>
+                <p class="small mb-5 pb-lg-2"><a class="text-muted" [routerLink]="['/forgot-password']">Forgot
+                        password?</a></p>
+                <p>Don't have an account? <a [routerLink]="['/signup']" class="link-info">Register here</a></p>
+            </form>
+        </div>
+    </div>
+    <div class="col-sm-6 px-0 d-none d-sm-block">
+        <img src="assets/images/signin-bg.jpg" alt="Login image" class="w-100 vh-100 auth-bg" />
+    </div>
+</div>
